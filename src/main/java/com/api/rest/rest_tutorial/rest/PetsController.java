@@ -1,24 +1,22 @@
-package rest;
+package com.api.rest.rest_tutorial.rest;
 
-import models.Pets;
+import com.api.rest.rest_tutorial.models.Pets;
 import org.bson.types.ObjectId;
-import repositories.PetsRepository;
+import com.api.rest.rest_tutorial.repositories.PetsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/pets")
 public class PetsController {
+
     @Autowired
     private PetsRepository repository;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Pets> getAllPets() {
         return repository.findAll();
     }
@@ -34,7 +32,8 @@ public class PetsController {
         pets.set_id(id);
         repository.save(pets);
     }
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
+//    @PostMapping()
     public Pets createPet(@Valid @RequestBody Pets pets) {
         pets.set_id(ObjectId.get());
         repository.save(pets);

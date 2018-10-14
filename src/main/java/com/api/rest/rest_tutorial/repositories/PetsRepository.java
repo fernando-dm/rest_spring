@@ -1,6 +1,6 @@
-package repositories;
+package com.api.rest.rest_tutorial.repositories;
 
-import models.Pets;
+import com.api.rest.rest_tutorial.models.Pets;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
