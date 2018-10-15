@@ -1,4 +1,4 @@
-package com.api.rest.rest_tutorial.models;
+package com.api.rest.rest_tutorial.models.pets;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
